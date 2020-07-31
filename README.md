@@ -29,3 +29,10 @@ The udev rule should usually live in `/etc/udev/rules.d/` or `/usr/lib/udev/rule
 
 The script requires `intel_reg` utility from the http://cgit.freedesktop.org/xorg/app/intel-gpu-tools/ to be in `PATH`.
 
+## Ansible installation
+
+The script and the udev rule can be installed by using Ansible.
+
+```
+sudo ansible install.yaml
+```
