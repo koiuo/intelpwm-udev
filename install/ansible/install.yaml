@@ -1,0 +1,39 @@
+---
+- name: Install edio's i915 pwm fix
+  hosts: localhost
+  vars:
+    pwm_frequency: 800
+    intelpwm_bin_path: "/usr/lib/udev/intelpwm"
+    udev_rules_dir: "/etc/udev/rules.d/"
+  tasks:
+
+  - name: Install intel-gpu-tools
+    package:
+      name: intel-gpu-tools
+      state: latest
+
+  - name: Set /etc/intelpwm.conf
+    lineinfile:
+      path: "/etc/intelpwm.conf"
+      line: "FREQ={{ pwm_frequency }}"
+      regexp: "^FREQ=.*"
+      create: true
+
+  - name: Install intelpwm script
+    copy:
+      src: "../../intelpwm"
+      dest: "{{ intelpwm_bin_path }}" 
+      owner: root
+      group: root
+      mode: 0550
+
+  - name: Set udev rule
+    copy:
+      src: "../../99-intelpwm.rules"
+      dest: "{{ udev_rules_dir }}"
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: Reload udev rules
+    shell: "udevadm control --reload-rules && udevadm trigger"
