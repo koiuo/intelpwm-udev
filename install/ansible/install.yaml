@@ -21,7 +21,7 @@
 
   - name: Install intelpwm script
     copy:
-      src: "intelpwm"
+      src: "../../intelpwm"
       dest: "{{ intelpwm_bin_path }}" 
       owner: root
       group: root
@@ -29,7 +29,7 @@
 
   - name: Set udev rule
     copy:
-      src: "99-intelpwm.rules"
+      src: "../../99-intelpwm.rules"
       dest: "{{ udev_rules_dir }}"
       owner: root
       group: root

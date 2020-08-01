@@ -33,6 +33,9 @@ The script requires `intel_reg` utility from the http://cgit.freedesktop.org/xor
 
 The script and the udev rule can be installed by using Ansible.
 
+It must be executed as follow, from the root folder of the project.
+
 ```
-sudo ansible install.yaml
+sudo ansible-playbook install/ansible/install.yaml
 ```
+
