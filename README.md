@@ -15,8 +15,8 @@ If it is known that the script should work even if the names of the registers do
 the script to work by explicitly specifying registers names or offsets. In `/etc/intelpwm.conf` add:
 
 ```
-PCH_RAWCLK_FREQ_REG=0xc8254
-BLC_PWM_PCH_CTL2_REG=0xc6204
+PCH_RAWCLK_FREQ_REG=0xc6204
+BLC_PWM_PCH_CTL2_REG=0xc8254
 ```
 
 `intelpwm` script can be invoked directly (for testing purposes) or via a supplied udev rule to set PWM frequency effectively
