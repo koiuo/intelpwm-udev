@@ -1,6 +1,6 @@
 KERNEL!="intel_backlight", SUBSYSTEM!="backlight", ACTION!="change", GOTO="backlight_pwm_rules_end"
 
-RUN="intelpwm"
+RUN+="intelpwm"
 
 LABEL="backlight_pwm_rules_end"
 
